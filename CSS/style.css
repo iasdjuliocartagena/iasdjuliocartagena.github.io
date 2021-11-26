@@ -1,13 +1,612 @@
-body {
-    min-width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+/* Global */
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
-.title {
-    font-size: 100px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+    font-family: Roboto, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #1d273b;
+    font-weight: 300;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.container1 {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+/* Header */
+
+/* Esto de aquí se hace  porque el position fixed saca al elemento de la maquetación, esto crea un elemento ficticio que tiene una margin-bottom de la misma medida del nav*/
+header:before {
+    content: "";
+    display: block;
+    margin-bottom: 80px;
+}
+
+nav {
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    border-bottom: 1px solid transparent;
+    box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, .2);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: top ease-in-out 0.5s;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.nav .logo {
+    height: 80px;
+}
+
+.nav .logo img {
+    height: 100%;
+    vertical-align: top;
+}
+
+.links-header {
+    font-weight: 300;
+}
+
+.nav .links-header a {
+    color: #5d6678;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hamburguer {
+    width: 80px;
+    height: 80px;
+    display: none;
+    text-align: center;
+    z-index: 100;
+    cursor: pointer;
+    /* transition: color 0.5s ease-in; */
+}
+
+.hamburguer>i {
+    font-size: 25px;
+    line-height: 80px;
+}
+
+.content-header {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5d6678
+}
+
+.content-header>img {
+    width: 550px;
+    animation: ease-in-out animate 1s
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.text-header {
+    margin-left: 30px;
+}
+
+.btn {
+    width: 130px;
+    display: inline-block;
+    background: #1fde82;
+    text-align: center;
+    color: #fff;
+    padding: 12px 0;
+    text-decoration: none;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 32px rgba(31, 222, 130, .46);
+    transition: opacity .2s;
+}
+
+.btn:hover {
+    opacity: .7;
+}
+
+.content-header a {
+    margin-top: 28px;
+}
+
+
+/* About Us */
+
+.about-us {
+    background: #f2f2f2;
+}
+
+.title-about-us {
+    font-size: 60px;
+    text-align: center;
+}
+
+.container-articles {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    justify-content: space-evenly;
+}
+
+.article {
+    width: 29%;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 45px 30px 60px 30px;
+    transition: box-shadow .3s;
+    margin: 20px;
+}
+
+.article:hover {
+    box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
+}
+
+.article>i {
+    font-size: 30px;
+    color: #fff;
+    background: #1fde82;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 8px 32px rgba(31, 222, 130, .46);
+}
+
+.article>h3 {
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.article>p {
+    font-weight: 100;
+    color: #5d6678;
+    margin-top: 15px;
+    padding-bottom: 20px;
+}
+
+/* speed */
+
+.speed {
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 100;
+    margin-top: 14px;
+    color: #5d6678;
+}
+
+.speed>img {
+    width: 550px;
+}
+
+.text-speed {
+    margin-left: 30px;
+}
+
+.text-speed p {
+    margin-top: 20px;
+}
+
+.speed a {
+    margin-top: 28px;
+}
+
+/* Results */
+
+.results {
+    background: #2570ff;
+    padding-top: 30px;
+    margin-bottom: 100px;
+}
+
+.content-results {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.numbers {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.numbers .number {
+    width: 45%;
+    background: rgba(255, 255, 255, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 40px 35px;
+    margin-bottom: 20px;
+}
+
+.numbers .number h4 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.numbers .number p {
+    color: #f3f5fc;
+    font-weight: 300;
+}
+
+.results-text {
+    width: 60%;
+}
+
+.results-text h4 {
+    color: #fff;
+    font-size: 40px;
+}
+
+.results-text p {
+    color: #fff;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+.results-text>a {
+    color: #fff;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+/* Services  */
+
+.services {
+    display: flex;
+    justify-content: space-between;
+}
+
+.services img {
+    width: 500px;
+}
+
+.box-skills {
+    margin: 30px 30px 0 0;
+}
+
+.box-skills h4 {
+    font-size: 24px;
+    background: #f2f2f2;
+    width: 350px;
+    border-radius: 6px;
+    padding: 20px 0px 10px 15px;
+    margin-bottom: 10px;
+}
+
+.box-skills i {
+    color: #1fde82;
+    font-size: 20px;
+}
+
+/* Footer */
+
+footer {
+    background: #f2f2f2;
+    padding: 60px 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: auto;
+}
+
+.partFooter {
+    width: 20%;
+    text-align: center;
+}
+
+.partFooter h4 {
+    color: #1d273b;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.partFooter a {
+    display: block;
+    text-decoration: none;
+    color: #5d6678;
+    font-weight: 300;
+    margin-bottom: 10px;
+    transition: color .2s ease-in-out;
+}
+
+.partFooter a:hover {
+    color: #1fde82
+}
+
+.partFooter img {
+    width: 70%;
+}
+
+.social-medias i {
+    font-size: 30px;
+    display: inline-block;
+    color: #adb6c7;
+    border: 1px solid #adb6c7;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    line-height: 36px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    transition: all ease-in-out.3s;
+    margin-right: 5px;
+}
+
+.social-medias i:hover {
+    color: #fff;
+    background: #1fde82;
+    border-color: #1fde82;
+}
+
+/* Breakpoins Responsive */
+
+@media screen and (max-width: 800px) {
+    .content-header {
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        height: 720px;
+        margin-bottom: 100px;
+    }
+
+    .content-header img {
+        width: 400px;
+    }
+
+    .text-header {
+        margin: 0
+    }
+
+    /* About Us */
+    .article {
+        width: 40%;
+    }
+
+    .speed {
+        height: 720px;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    /* Results */
+
+    .content-results {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+    }
+
+    .results-text a {
+        margin-bottom: 60px;
+    }
+
+    .results-text {
+        width: 100%;
+    }
+
+    .numbers {
+        width: 100%
+    }
+
+    /* Services */
+
+    .services {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .box-skills {
+        margin: 0 0 40px 0;
+    }
+
+    .box-skills h4 {
+        width: 500px;
+    }
+
+    .services img {
+        width: 400px;
+    }
+
+    /* Footer */
+
+    .partFooter {
+        width: 40%;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    h2,
+    h3 {
+        font-size: 35px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .content-header {
+        height: 650px;
+    }
+
+    .nav {
+        padding: 0 10px;
+    }
+
+    .content-header img {
+        width: 300px;
+    }
+
+    .links-header {
+        position: fixed;
+        background: #667db6;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        clip-path: circle(0% at 100% 0);
+        transition: clip-path .5s ease-in-out;
+    }
+
+    .nav .extended-menu {
+        clip-path: circle(200% at 100% 0);
+    }
+
+    .nav .links-header a {
+        color: #fff
+    }
+
+    .hamburguer {
+        display: block;
+        transition: color .5s ease-in-out;
+    }
+
+    /* About us */
+
+    .article {
+        width: 95%;
+    }
+
+    /* Speed */
+
+    .speed img {
+        width: 300px;
+    }
+
+    /* Results */
+    .numbers .number {
+        width: 95%;
+    }
+
+    .results-text {
+        font-size: 35px;
+    }
+
+    .box-skills h4 {
+        width: 100%;
+    }
+
+    /* Footer */
+    .partFooter {
+        width: 95%;
+        margin-bottom: 40px;
+    }
+
+    .partFooter img {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    /* Showcase */
+    .content-header img {
+        width: 230px;
+    }
+
+    .content-header h1 {
+        font-size: 35px;
+    }
+
+    /* About us */
+
+    .title-about-us {
+        font-size: 35px;
+    }
+
+    /* Speed */
+    .speed img {
+        width: 230px;
+    }
+
+    /* Result */
+
+    .results-text h4 {
+        font-size: 35px;
+    }
+
+    .results-text p {
+        font-size: 20px;
+    }
+
+    /* Services */
+
+    .box-skills h4 {
+        font-size: 23px;
+    }
+
+    .services img {
+        width: 200px;
+    }
 }
